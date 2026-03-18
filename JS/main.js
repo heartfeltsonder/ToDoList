@@ -201,3 +201,31 @@ function changeTheme(color) {
         });
     });
 }
+function updateTaskCounter() {
+    // Select all tasks in the list
+    const tasks = document.querySelectorAll('.todo-list li');
+    let remaining = 0;
+
+    // Count tasks that are not completed
+    tasks.forEach(task => {
+        if (!task.classList.contains('completed')) {
+            remaining++;
+        }
+    });
+
+    // Update the counter in HTML
+    document.getElementById('task-counter').textContent = "Tasks Remaining: " + remaining;
+}
+
+// Call this on page load
+document.addEventListener('DOMContentLoaded', () => {
+    updateTaskCounter();
+});
+
+// Example: Update counter whenever a task is clicked to mark complete
+document.querySelector('.todo-list').addEventListener('click', (e) => {
+    if (e.target.tagName === 'LI') {
+        e.target.classList.toggle('completed'); // toggle completed class
+        updateTaskCounter(); // update counter
+    }
+});
