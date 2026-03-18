@@ -140,11 +140,13 @@ function getTodos() {
         const checked = document.createElement('button');
         checked.innerHTML = '<i class="fas fa-check"></i>';
         checked.classList.add("check-btn", `${savedTheme}-button`);
+        checked.title= "mark as completed"
         toDoDiv.appendChild(checked);
         // delete btn;
         const deleted = document.createElement('button');
         deleted.innerHTML = '<i class="fas fa-trash"></i>';
         deleted.classList.add("delete-btn", `${savedTheme}-button`);
+        deleted.title= "Delete task"
         toDoDiv.appendChild(deleted);
 
         // Append to list;
