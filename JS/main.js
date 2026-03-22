@@ -231,3 +231,20 @@ document.querySelector('.todo-list').addEventListener('click', (e) => {
         updateTaskCounter(); // update counter
     }
 });
+// Task Search Feature
+const searchInput = document.getElementById('search-task');
+
+searchInput.addEventListener('keyup', function () {
+    const searchValue = searchInput.value.toLowerCase();
+    const tasks = document.querySelectorAll('.todo-list li');
+
+    tasks.forEach(task => {
+        const text = task.textContent.toLowerCase();
+
+        if (text.includes(searchValue)) {
+            task.style.display = "block";
+        } else {
+            task.style.display = "none";
+        }
+    });
+});
